@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import FilmComponent from '@/app/ui/film'
+import { Suspense } from 'react'
+
 /**Composant représentant le nom et le logo */
 function Nameandlogo (args){
 
@@ -34,55 +37,63 @@ function Header (args){
 
 }
 
+async function fetch_film_data() {
+
+  const baseUrl = process.env.URL || 'http://localhost:3000';
+  /** Pas besoin de spécifier public/.... pour les fichiers static
+   *  Juste mettre le nom du fichier statique
+   */
+  const json_api_url = `${baseUrl}/film.json`;  //Lien de fichier json 
+
+  try {
+
+    const response = await fetch(json_api_url);
+    const response_json = await response.json();
+
+    console.log("JSON : " + response_json);
+
+    return response_json;
+    
+  } catch (error) {
+
+    console.log(error.message);
+    
+  }
+ 
+  return [];
+
+}
+
+
 function Body(){
+
+  const movies_json = fetch_film_data();
 
   return (
 
     <section id="main-section">
-
-        <div id="main-div">
-
-          <div id="main-div-header">
-            <h1> Film Title, Year</h1>
-
-            
-          </div>
-          
-          <div id="main-div-body">
-            <h1> Film Title, Year</h1>
-             Released
-             Genre
-             Synospis : Plot
-          </div> 
-
-          <button className="boutons"> Like </button>
-          <button className="boutons">  Dislike </button>
-
-          
-        </div>
-
-
-    </section>
+      <Suspense fallback={<div>Loading...</div>}>
+        <FilmComponent movies={movies_json} />
+      </Suspense>
+    </section>  
   );
 
 }
 
-function Footer(){
 
+function Footer(){
   return (
     <footer>
       <p>cp</p>
     </footer>
   );
-
 }
-
-
-
 
 
 /**Main */
 export default function Home() {
+  fetch_film_data()
+
   return (
     <>
 

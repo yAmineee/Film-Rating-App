@@ -60,6 +60,8 @@ header{
 
 #main-div{
 
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
   
   border-radius: 1em;
   padding: 1em;
@@ -68,11 +70,33 @@ header{
   width: 70vw;
   height: 60vh;
 
+  overflow: auto;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  
 
 }
 
+#main-div-header, #main-div-body {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #7ec8e397 ;
+}
+
+#main-div-header>h1{
+
+  text-align: center;
+
+}
+
+
 footer{
   height: 10vh;
+}
+
+#btns{
+  display: flex;
+  justify-content: space-around;
 }
 
 .boutons{
@@ -81,4 +105,6 @@ footer{
   margin: 8px;
   border-radius: 0.75em;
   width: 10em ;
+
+  @apply hover:cursor-pointer ;
 }

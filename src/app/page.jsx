@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 
 import FilmComponent from '@/app/ui/film'
@@ -84,7 +84,7 @@ function Body(){
 function Footer(){
   return (
     <footer>
-      <p>cp</p>
+      <p>cp &#10094;  &#10095;</p>
     </footer>
   );
 }

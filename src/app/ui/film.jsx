@@ -1,6 +1,7 @@
 'use client'
 
 import { use } from "react";
+import Image from "next/image";
 
 
 export default function FilmComponent({movies}){
@@ -16,6 +17,7 @@ export default function FilmComponent({movies}){
     const mov_genre = a_movie_object.Genre;
     const mov_released = a_movie_object.Released;
     const mov_synopsy = a_movie_object.Plot;
+    const mov_pics = a_movie_object.Images;
 
     return (
 
@@ -36,7 +38,12 @@ export default function FilmComponent({movies}){
           </p>
 
           <div id="main-div-body-pics">
-            Images ??
+            {mov_pics.map(pic => (
+
+              <img key={mov_pics.indexOf(pic)} src={pic} alt={mov_title} width={200}/>
+              
+            ))}
+
           </div>
 
         </div> 
@@ -56,8 +63,12 @@ export default function FilmComponent({movies}){
   const amovie = movies_list[0];
 
   return (
+    <>
 
     <Film a_movie_object = {amovie} />
+    {/** <Film a_movie_object = {movies_list[1]} />  */}
+    
+    </>
 
   );
 }

@@ -53,7 +53,6 @@ export default function FilmComponent({movies}){
 
   }
 
-
   const amovie = movies_list[0];
 
   return (

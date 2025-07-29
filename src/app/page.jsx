@@ -50,8 +50,6 @@ async function fetch_film_data() {
     const response = await fetch(json_api_url);
     const response_json = await response.json();
 
-    console.log("JSON : " + response_json);
-
     return response_json;
     
   } catch (error) {
@@ -71,10 +69,12 @@ function Body(){
 
   return (
 
-    <section id="main-section">
+    <section className="main-section">
+
       <Suspense fallback={<div>Loading...</div>}>
         <FilmComponent movies={movies_json} />
       </Suspense>
+
     </section>  
   );
 
@@ -84,7 +84,7 @@ function Body(){
 function Footer(){
   return (
     <footer>
-      <p>cp &#10094;  &#10095;</p>
+      <p>cp   &#10095;</p>
     </footer>
   );
 }

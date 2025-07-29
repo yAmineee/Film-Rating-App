@@ -1,7 +1,6 @@
 'use client'
 
 import { use , useState } from "react";
-import Image from "next/image";
 
 
 export default function FilmComponent({movies}){
@@ -14,7 +13,7 @@ export default function FilmComponent({movies}){
   };
 
    const prevslide = () => {
-    setCurrentSlide(currentSlide < 0 ? movies_list.length - 1  : currentSlide+1);
+    setCurrentSlide(currentSlide - 1 < 0 ? movies_list.length - 1  : currentSlide-1);
   };
 
   return (
@@ -35,11 +34,8 @@ export default function FilmComponent({movies}){
       <div className=" slide-btn hover:cursor-pointer " onClick={nextslide}>&#10095;</div>
     </>
 
-
   );
 } 
-
-
 
 function Film({a_movie_object, display}){
 
@@ -50,11 +46,9 @@ function Film({a_movie_object, display}){
     setLike(like+1)
   }
 
-   const DislikeContent = () => {
+  const DislikeContent = () => {
     setDislike(dislike+1)
   }
-
-  
 
   const mov_title = a_movie_object.Title;
   const mov_year = a_movie_object.Year;
@@ -64,7 +58,6 @@ function Film({a_movie_object, display}){
   const mov_released = a_movie_object.Released;
   const mov_synopsy = a_movie_object.Plot;
   const mov_pics = a_movie_object.Images;
-
 
   return (
 

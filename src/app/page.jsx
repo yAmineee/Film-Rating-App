@@ -83,8 +83,14 @@ function Body(){
 
 function Footer(){
   return (
-    <footer>
-      <p>cp   &#10095;</p>
+    <footer className="text-sm">
+      <p > Auteur : Yamine Ibrahima &nbsp; | &nbsp; Petit projet pour commencer l'apprentissage
+        de Nextjs &amp; Reactjs 
+      </p>
+      <br />
+
+      
+      <p> Juillet 2025 </p>
     </footer>
   );
 }

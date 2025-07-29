@@ -91,6 +91,10 @@ header{
 
 
 footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 10vh;
 }
 
@@ -126,7 +130,6 @@ footer{
   font-size: 50px;
 
 }
-
 
 .cacher{
   display: none;

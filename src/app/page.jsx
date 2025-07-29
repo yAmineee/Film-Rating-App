@@ -43,7 +43,7 @@ async function fetch_film_data() {
   /** Pas besoin de spécifier public/.... pour les fichiers static
    *  Juste mettre le nom du fichier statique
    */
-  const json_api_url = `${baseUrl}/film.json`;  //Lien de fichier json 
+  const json_api_url = `/film.json`;  //Lien de fichier json  `${baseUrl}/film.json`
 
   try {
 
